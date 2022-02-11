@@ -12,9 +12,6 @@ lotin=["A","a","B","b","V","v","G","g","D","d","Ye","ye","Yo","yo","J","j",
 "Q","q","G‘","g‘","H","h"," ",'"',"#","$","%","&","(",")","*","+",",","-",".","/",
 "0","1","2","3","4","5","6","7","8","9",":",";","<","=",">","?","@","[","]","^","_","`"]
 
-ikki_l = ["Ye","ye", "Yo","yo", "Ch","ch","Sh","sh", "Yu","yu","Ya","ya", "O‘","o‘","O'","o'", "G‘","g‘", "G'","g'"]
-ikki_k = ["Е","е", "Ё","ё", "Ч","ч","Ш","ш", "Ю","ю","Я","я", "Ў","ў","Ў","ў", "Ғ","ғ", "Ғ","ғ"]
-
 def translate(text):
     n = ''
     for j, i in enumerate(text):
@@ -39,7 +36,7 @@ text = text.replace("Yo'", "Йў").replace("yo'", 'йў').replace("Yo‘","Йў"
 text = text.replace("Ye", "Е").replace("ye","е").replace("Yo", "Ё").replace("yo","ё").replace("Ch","Ч").replace("ch","ч").replace("Sh","Ш").replace("sh","ш").replace("Yu","Ю").replace("yu","ю").replace("Ya","Я").replace("ya","я").replace("O‘","Ў").replace("o‘","ў").replace("G‘","Ғ").replace("g‘","ғ")
 text = text.replace("oʻ", 'ў').replace("Oʻ", "Ў").replace("gʻ", "ғ").replace("Gʻ", "Ғ")
 text = text.replace("O'","Ў").replace("o'","ў").replace("G‘","Ғ").replace("g'","ғ")
-text = text.replace("'", "ъ")
+text = text.replace("'", "ъ").replace("`", "ъ")
 
 t = []
 for i in text:
