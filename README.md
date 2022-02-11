@@ -1,0 +1,2 @@
+# Translate
+Lotin to kril
