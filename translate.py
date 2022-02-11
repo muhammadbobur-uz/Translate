@@ -57,7 +57,7 @@ def change(update:Update, context:CallbackContext):
         query.edit_message_caption(caption=txt, reply_markup=InlineKeyboardMarkup(button))
 
 
-updater = Updater('1350277281:AAFksBSkEZuzwv0ZNTquYJoSUPnnWo9v4ik', use_context=True)
+updater = Updater('Token', use_context=True)
 
 
 conv_handler = ConversationHandler(
