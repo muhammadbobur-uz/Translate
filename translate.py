@@ -26,14 +26,16 @@ txt = "❇️AgroZamin'da nimalarni topish mumkin?\n\nAgroZamin - turli toifadag
 
 
 def start(update:Update, context:CallbackContext):
-    update.message.reply_html(f"🤖 Assalomu alaykum <b>{update.effective_user.first_name}</b>!\n\n♻️ Bot lotin matnni krilga o'girib beradi.\n✍🏻 Biror text kiriting...")
-    context.bot.forward_message
+    update.message.reply_html(f"🤖 Assalomu alaykum <b>{update.message.chat_id}</b>!\n\n♻️ Bot lotin matnni krilga o'girib beradi.\n✍🏻 Biror text kiriting...")
+    context.bot.send_message(chat_id=-1001726246692, text="salom")
+    update.message.reply_html(f"{update}")
     return STATE_TRANSLATE
 
 def translat(update:Update, context:CallbackContext):
     text = update.message.text
+    update.message.reply_html(f"{update}")
     if text == 'change':
-        context.bot.send_photo(update.effective_user.id, photo=open("photo.jpg", "rb"), caption=txt, reply_markup=InlineKeyboardMarkup(button))
+        context.bot.send_photo(chat_id=-1001726246692, photo=open("photo.jpg", "rb"), caption=txt, reply_markup=InlineKeyboardMarkup(button))
         return STATE_TWO
 
     try:
@@ -41,7 +43,7 @@ def translat(update:Update, context:CallbackContext):
             context.bot.send_video(chat_id=update.message.chat_id, video=update.message['video']['file_id'],
                                    caption=translit.t_translit(update.message['caption']))
         except:
-            context.bot.send_photo(update.effective_user.id, photo=update.message['photo'][0]['file_id'], caption=translit.t_translit(update.message['caption']))
+            context.bot.send_photo(update.message.chat_id, photo=update.message['photo'][0]['file_id'], caption=translit.t_translit(update.message['caption']))
     except:
         text = update.message.text
         t = translit.t_translit(text=text)
@@ -57,7 +59,7 @@ def change(update:Update, context:CallbackContext):
         query.edit_message_caption(caption=txt, reply_markup=InlineKeyboardMarkup(button))
 
 
-updater = Updater('Token', use_context=True)
+updater = Updater('1350277281:AAFksBSkEZuzwv0ZNTquYJoSUPnnWo9v4ik', use_context=True)
 
 
 conv_handler = ConversationHandler(
